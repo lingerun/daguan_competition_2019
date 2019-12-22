@@ -1,16 +1,16 @@
 # daguan_competition_2019
-2019年达观杯智能信息抽取挑战赛获奖方案
+## 2019年达观杯智能信息抽取挑战赛获奖方案
 
-参赛队伍：whaido
-最终排名：第四名
-竞赛地址：https://biendata.com/competition/datagrand/
+## 参赛队伍：whaido
+## 最终排名：第四名
+## 竞赛地址：https://biendata.com/competition/datagrand/
 
-1．运行环境及参数
+# 1．运行环境及参数
 	运行环境及参数详见代码模型包中requirements.txt
 
-复现结果可直接参考2.3节
+	复现结果可直接参考2.3节
 
-2. 模型简介
+# 2. 模型简介
 	参赛模型主要采用bert预训练+fineuning模式
 	BERT-Base, Chinese: Chinese Simplified and Traditional, 12-layer, 768-hidden, 12-heads, 110M parameters
 
@@ -19,9 +19,9 @@
 	基于谷歌开源的bert模型。利用提供的corpus.txt进行预训练，再利用train.txt进行fine-tuning，最终对test.txt进行预测。
 
 
-2.1 预训练
+## 2.1 预训练
 	数据：
-		corpus.txt转化为corpus_bert.txt(每行中间加空行，划分段落，bert预训练中会预测上下句，段落内的句子关系较重要，段落是按空行划分的)----该步骤		对句子关系有重要意义
+	corpus.txt转化为corpus_bert.txt(每行中间加空行，划分段落，bert预训练中会预测上下句，段落内的句子关系较重要，段落是按空行划分的)----该步骤对句子关系有重要意义
 
 	Bert基本信息：
 		bert_base----bert_config.json, vocab.txt(词汇表由corpus生成)，不采用bert原始预训练获得的init_checkpoint, 因corpus数据是脱敏的
@@ -50,7 +50,7 @@
 	next_sentence_accuracy = 1.0
 	next_sentence_loss = 0.0
 
-2.2 Fine-tuning
+## 2.2 Fine-tuning
 	Fine-tuning使用的训练数据采用BIEO标记，即Begin, Intermediate, End, Other
 
 	Fine-tuning主要做的任务是ner，参考https://github.com/ProHiryu/bert-chinese-ner
@@ -65,7 +65,7 @@
 	learning_rate", 5e-5
 
 
-2.3 预测
+## 2.3 预测
 
 	python BERT_NER.py --do_train=False --do_eval=False --do_predict=True --data_dir=datagrand/ --bert_config_file=bert_base/bert_config.json --init_checkpoint=tmp/pretraining_output/ --vocab_file=bert_base/vocab.txt --output_dir=./ner_result/ --max_seq_length=512
 
@@ -76,12 +76,12 @@
 	预测结果存储在ner_result/ eval_submit_result_BIEO.txt中
 
 
-3. 队伍介绍
+# 3. 队伍介绍
 	队伍名称：whaido
 
-4. 参考
+# 4. 参考
 
-	https://github.com/google-research/bert
+	https://github.com/google-research/bert  
 	https://github.com/ProHiryu/bert-chinese-ner
 
 
