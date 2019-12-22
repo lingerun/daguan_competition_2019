@@ -1,9 +1,11 @@
 # daguan_competition_2019
 ## 2019年达观杯智能信息抽取挑战赛获奖方案
 
-## 参赛队伍：whaido
-## 最终排名：第四名
-## 竞赛地址：https://biendata.com/competition/datagrand/
+#### 参赛队伍：whaido
+#### 最终排名：第四名
+#### 竞赛地址：https://biendata.com/competition/datagrand/
+
+
 
 # 1．运行环境及参数
 	运行环境及参数详见代码模型包中requirements.txt
